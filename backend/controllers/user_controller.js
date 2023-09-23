@@ -6,6 +6,8 @@ exports.register = async (req, res)=>{
 
         const { name, email, password } = req.body;
 
+        console.log(name, email, password);
+
         let user = await User.findOne({email});
 
         if(user) return res.status(400).json({
@@ -80,5 +82,24 @@ exports.login = async function(req, res){
                 success: false,
                 message: error.message
             })
+    }
+}
+
+
+exports.logout = async (req, res)=>{
+
+    try {
+        return res.status(200).cookie("token",null, {
+            expires: new Date(Date.now()), 
+            httpOnly: true
+        }).json({
+            success: true,
+            message: "successfully logout"
+        });
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: error.message
+        })
     }
 }
