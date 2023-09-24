@@ -19,6 +19,7 @@ const Login = () => {
 
   const handleFormSubmit = async (e)=>{
        e.preventDefault();
+       console.log(isSignIn);
        try {
             if(isSignIn){
                 const {data} = await axios.post("/api/v1/login",{email, password});
@@ -26,6 +27,7 @@ const Login = () => {
                 navigate('/');
             }
             else{
+                console.log("else block....");
                 const {data} = await axios.post("/api/v1/register", {name, email, password});
                 dispatch(addUser(data.user));
                 navigate('/');

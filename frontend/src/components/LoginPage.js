@@ -1,8 +1,8 @@
 import React from 'react'
-import Header from './Header'
-import Login from './Login'
+import Header from "./Header";
+import Login from "./Login";
 
-const loginPage = () => {
+const LoginPage = () => {
   return (
     <div>
         <Header />
@@ -11,4 +11,4 @@ const loginPage = () => {
   )
 }
 
-export default loginPage
+export default LoginPage

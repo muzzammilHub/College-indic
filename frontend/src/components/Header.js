@@ -31,8 +31,8 @@ const Header = () => {
         onClick={handleLogout}
         className=' m-6 pt-2 pb-2 pr-3 pl-3 bg-white border border-black rounded-md shadow-md font-semibold'>Logout</button>)
         :
-        (<Link to='/loginpage'> 
-        <button className=' m-6 pt-2 pb-2 pr-3 pl-3 bg-white border border-black rounded-md shadow-md font-semibold'>Login</button>
+        (<Link to={window.location.pathname === '/loginpage' ? '/' : '/loginpage'}> 
+        <button className=' m-6 pt-2 pb-2 pr-3 pl-3 bg-white border border-black rounded-md shadow-md font-semibold'>{window.location.pathname === '/' ? 'Login' : 'Home'}</button>
         </Link>)}
         
     </div>

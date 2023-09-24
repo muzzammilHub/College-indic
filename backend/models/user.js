@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-const crypto = require("crypto");
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -11,7 +10,7 @@ const userSchema = new mongoose.Schema({
     email: {
         type: String,
         required: [true, "Please enter an email"],
-        unique: [true, "Email already exists"]
+        unique: [true, "Please enter a unique email"]
     },
     password: {
         type: String,
@@ -38,4 +37,4 @@ userSchema.methods.generateToken = async function(){
     return jwt.sign({_id: this._id}, process.env.SECRET_KEY);
 }
 
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model('User', userSchema);
